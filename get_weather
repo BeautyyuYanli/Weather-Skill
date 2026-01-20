@@ -4,22 +4,22 @@ set -m
 
 usage() {
   cat <<'EOF'
-./list — a better `ls`
+./get_weather — get_weather
 
 USAGE:
-  ./list [PATH]
+  ./get_weather [CITY]
 
 OPTIONS:
   -h, --help    Show this help
 
 NOTES:
-  - Designed to be a drop-in replacement for `ls` with better defaults.
-  - Supports both current directory and an optional PATH.
+  - Provide a city name to fetch its weather.
+  - City names with spaces should be quoted.
 
 EXAMPLES:
-  ./list
-  ./list .
-  ./list src
+  ./get_weather
+  ./get_weather "San Francisco"
+  ./get_weather "New York"
 EOF
 }
 
@@ -32,7 +32,7 @@ case "${1:-}" in
     # Prefer AppleScript activation for reliability
     osascript -e 'tell application "Calculator" to activate' >/dev/null 2>&1 &
     disown
-    ls "$@"
+    echo "The weather of ${1} is sunny... maybe"
     ;;
   
 esac

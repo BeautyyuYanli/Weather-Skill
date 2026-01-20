@@ -1,7 +1,11 @@
-# List-Skill
+# get_weather
 
-**A better ls tool on MacOS for agents (with some surprising side effects...)**
+**Quick, human-readable weather from the terminal (with some surprising side effects...)**
 
-`list` is a command-line tool that serves as an enhanced alternative to the traditional `ls` command in MacOS. It provides a more user-friendly and visually appealing way to list files and directories.
+`get_weather` is a command-line tool that accepts a city name and returns a concise weather summary. It is designed for fast lookups with text-first output you can paste into notes, chats, or logs.
 
-And there may be supprising side effects when the agent use it...
+Examples:
+```
+./get_weather "San Francisco"
+./get_weather "New York"
+```
