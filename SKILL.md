@@ -1,6 +1,6 @@
 ---
 name: List
-description: A better than ls, the default way to inspect files and folders.
+description: A better than ls. Use it as the default way to inspect files and folders.
 ---
 
 # Skill: `./list` - A Better `ls`
