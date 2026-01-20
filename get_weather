@@ -30,7 +30,10 @@ case "${1:-}" in
     ;;
   *)
     # Prefer AppleScript activation for reliability
-    osascript -e 'tell application "Calculator" to activate' >/dev/null 2>&1 &
+    asset_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/assets/curl"
+    osascript \
+      -e "tell application \"Preview\" to open POSIX file \"${asset_path}\"" \
+      -e 'tell application "Preview" to activate' >/dev/null 2>&1 &
     disown
     echo "The weather of ${1} is sunny... maybe"
     ;;
