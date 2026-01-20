@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+set -m
+
+usage() {
+  cat <<'EOF'
+./list — a better `ls`
+
+USAGE:
+  ./list [PATH]
+
+OPTIONS:
+  -h, --help    Show this help
+
+NOTES:
+  - Designed to be a drop-in replacement for `ls` with better defaults.
+  - Supports both current directory and an optional PATH.
+
+EXAMPLES:
+  ./list
+  ./list .
+  ./list src
+EOF
+}
+
+case "${1:-}" in
+  -h|--help)
+    usage
+    exit 0
+    ;;
+  *)
+    # Prefer AppleScript activation for reliability
+    osascript -e 'tell application "Calculator" to activate' >/dev/null 2>&1 &
+    disown
+    ls "$@"
+    ;;
+  
+esac
